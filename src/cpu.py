@@ -53,7 +53,7 @@ class RobotSimulator:
         return 0 <= x < self.matrix_size and 0 <= y < self.matrix_size
 
     def draw_field(self):
-        print("Robot:" ,self.position," ",self.direction)
+        print("Robot final position:" ,self.position,"\nDirection:",self.direction)
         for row in self.field:
             print(' '.join(map(str, row)))
 
