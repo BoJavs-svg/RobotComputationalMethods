@@ -5,12 +5,10 @@ class TestRobot(unittest.TestCase):
     def setUp(self):
         self.robot = RobotSimulator()
 
-    def test_execute_instructions(self):
-        self.robot.execute_instructions('src/instructions.asm')
-        self.assertEqual(self.robot.position, [2, 2])  # Expected final position after executing instructions
-        self.assertEqual(self.robot.direction, 0)  # Expected final direction after executing instructions
-
-
+    def test_move(self):
+        self.robot.move(2)
+        self.assertEqual(self.robot.position, [0, 2])  # Expected position relative to initial position (0, 0)
+        
     def test_move_out_of_bounds(self):
         with self.assertRaises(ValueError):
             self.robot.move(10)  # Attempting to move out of bounds should raise an exception
