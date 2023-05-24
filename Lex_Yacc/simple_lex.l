@@ -3,23 +3,43 @@
 %}
 
 %%
-
 "robot"                     { return NOUN; }
+"gerald"                    { return NOUN; } /*robots name*/
+
+"block"                    { return BLOCKS; }
+"blocks"                   { return BLOCKS; }
+
 "please"                    { return KIND_WORD; }
-"move"                      { return VERB; }
-"blocks"                    { return NOUN; }
-"ahead"                     { return DIRECTION; }
+"kindly"                    { return KIND_WORD; }
+
+","                         { return PUNCTUATION; }
+
 "and"                       { return CONJUNCTION; }
 "then"                      { return CONJUNCTION; }
-"turn"                      { return VERB; }
-"90"|"180"|"270"|"360"      { return DEGREES; }
-"left"|"right"|"up"|"down"  { return DIRECTION; }
-"a"|"an"|"the"              { return ARTICLE; }
-","                         { return PUNCTUATION; }
+"subsequently"              { return CONJUNCTION; }
+"after"                     { return CONJUNCTION; }
+"afterwards"                { return CONJUNCTION; }
+"next"                      { return CONJUNCTION; }
+"finally"                   { return CONJUNCTION; }
+
+"move"                      { return COMMAND; }
+"advance"                   { return COMMAND; }
+
+"turn"                      { return COMMAND; }
+"rotate"                    { return COMMAND; }
+
+"a"                         { return ARTICLE; }
+"an"                        { return ARTICLE; }
+"the"                       { return ARTICLE; }
+
 [0-9]+                      { return NUMBER; }
+"90"|"180"|"270"|"360"      { return DEGREES; }
+
+"ahead"                     { return DIRECTION; }
+"left"|"right"|"up"|"down"  { return DIRECTION; }
+
 \n                          { /* Skip newline character */ }
 [ \t]+                      { /* Skip whitespace */ }
-.                           { return INVALID; }
 %%
 
 int yywrap(void) {
