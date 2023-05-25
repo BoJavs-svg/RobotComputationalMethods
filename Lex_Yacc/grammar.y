@@ -11,8 +11,33 @@ char* toLowerCase(char* str);
 %token NOUN KIND_WORD COMMAND BLOCKS DIRECTION NUMBER DEGREES CONJUNCTION
 
 %%
+statement_list : statement '\n' 
+               | statement_list statement '\n'
+               ;
+               
+statement : robot_command {printf("PASS \n");}
+          | robot_command conjunction statement
+          ;
 
-#############################################
+robot_command : NOUN KIND_WORD action
+              | NOUN KIND_WORD action conjunction robot_command
+              ;
+
+action : movement
+       | rotation
+       ;
+
+movement : COMMAND quantity BLOCKS DIRECTION
+         ;
+
+rotation : COMMAND DEGREES
+         ;
+
+quantity : NUMBER
+         ;
+
+conjunction : CONJUNCTION
+            ;
 
 %%
 int yylex(void);

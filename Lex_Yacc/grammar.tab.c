@@ -1343,10 +1343,10 @@ yyreduce:
   YY_REDUCE_PRINT (yyn);
   switch (yyn)
     {
-        case 2:
+        case 4:
 /* Line 1792 of yacc.c  */
-#line 14 "grammar.y"
-    {printf("The sentence passes.\n");}
+#line 18 "grammar.y"
+    {printf("PASS \n");}
     break;
 
 
