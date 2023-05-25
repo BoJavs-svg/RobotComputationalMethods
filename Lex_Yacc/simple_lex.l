@@ -1,5 +1,7 @@
 %{
-#include "y.tab.h"
+#include "grammar.tab.h"
+#define PUNCTUATION 257
+#define ARTICLE 258
 %}
 
 %%
@@ -32,11 +34,19 @@
 "an"                        { return ARTICLE; }
 "the"                       { return ARTICLE; }
 
+"90"                        { return DEGREES; }
+"180"                       { return DEGREES; }
+"270"                       { return DEGREES; }
+"360"                       { return DEGREES; }
+
 [0-9]+                      { return NUMBER; }
-"90"|"180"|"270"|"360"      { return DEGREES; }
+
 
 "ahead"                     { return DIRECTION; }
-"left"|"right"|"up"|"down"  { return DIRECTION; }
+"left"                      { return DIRECTION; }
+"right"                     { return DIRECTION; }
+"up"                        { return DIRECTION; }
+"down"                      { return DIRECTION; }
 
 \n                          { /* Skip newline character */ }
 [ \t]+                      { /* Skip whitespace */ }
