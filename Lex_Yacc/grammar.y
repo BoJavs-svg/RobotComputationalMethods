@@ -48,7 +48,6 @@ int main(int argc, char** argv) {
         printf("Please provide a filename as an argument.\n");
         return 1;
     }
-
     FILE* file = fopen(argv[1], "r");
     if (file == NULL) {
         printf("Failed to open the file.\n");
