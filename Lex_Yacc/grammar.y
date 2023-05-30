@@ -8,7 +8,7 @@ extern FILE* yyin;
 char* toLowerCase(char* str);
 %}
 
-%token NOUN KIND_WORD COMMAND BLOCKS DIRECTION NUMBER DEGREES CONJUNCTION
+%token NOUN KIND_WORD COMMAND BLOCKS DIRECTION NUMBER DEGREES CONJUNCTION ANGLE
 
 %%
 statement_list : statement '\n' 
@@ -25,18 +25,20 @@ robot_command : NOUN KIND_WORD action
 
 action : movement
        | rotation
+       | rotation conjunction movement
        ;
 
 movement : COMMAND quantity BLOCKS DIRECTION
          ;
 
-rotation : COMMAND DEGREES
+rotation : COMMAND ANGLE DEGREES
          ;
 
 quantity : NUMBER
          ;
 
 conjunction : CONJUNCTION
+            | conjunction CONJUNCTION
             ;
 
 %%

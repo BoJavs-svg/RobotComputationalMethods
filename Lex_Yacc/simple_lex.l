@@ -11,6 +11,8 @@
 "block"                    { return BLOCKS; }
 "blocks"                   { return BLOCKS; }
 
+"degrees"                  {return DEGREES; }
+
 "please"                    { return KIND_WORD; }
 "kindly"                    { return KIND_WORD; }
 
@@ -34,10 +36,10 @@
 "an"                        { return ARTICLE; }
 "the"                       { return ARTICLE; }
 
-"90"                        { return DEGREES; }
-"180"                       { return DEGREES; }
-"270"                       { return DEGREES; }
-"360"                       { return DEGREES; }
+"90"                        { return ANGLE; }
+"180"                       { return ANGLE; }
+"270"                       { return ANGLE; }
+"360"                       { return ANGLE; }
 
 [0-9]+                      { return NUMBER; }
 
