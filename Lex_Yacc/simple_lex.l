@@ -50,7 +50,7 @@
 "up"                        { return DIRECTION; }
 "down"                      { return DIRECTION; }
 
-\n                          { /* Skip newline character */ }
+\n                          { return EOL;}
 [ \t]+                      { /* Skip whitespace */ }
 %%
 

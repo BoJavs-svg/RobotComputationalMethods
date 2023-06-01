@@ -8,11 +8,12 @@ extern FILE* yyin;
 char* toLowerCase(char* str);
 %}
 
-%token NOUN KIND_WORD COMMAND BLOCKS DIRECTION NUMBER DEGREES CONJUNCTION ANGLE
+%token NOUN KIND_WORD COMMAND BLOCKS DIRECTION NUMBER DEGREES CONJUNCTION ANGLE EOL
 
 %%
-statement_list : statement '\n' 
-               | statement_list statement '\n'
+statement_list : statement EOL 
+               | statement_list statement EOL
+               | statement
                ;
                
 statement : robot_command {printf("PASS \n");}
@@ -43,7 +44,10 @@ conjunction : CONJUNCTION
 
 %%
 int yylex(void);
-void yyerror(const char* s);
+void yyerror(const char *s){
+	printf("FAIL\n");
+    pass = 0;
+}
 
 int main(int argc, char** argv) {
     if (argc < 2) {
@@ -68,11 +72,6 @@ int main(int argc, char** argv) {
     }
 
     return 0;
-}
-
-void yyerror(const char* s) {
-    printf("Syntax error: %s\n", s);
-    pass = 0;
 }
 
 char* toLowerCase(char* str) {

@@ -1,4 +1,7 @@
 robot please move 2 blocks ahead
-robot please move 3 blocks ahead and then turn 90 degrees, then move 2 blocks
 robot kindly move 2 blocks ahead
-gerald pleas move 2 blocks ahead
+robot please move 3 blocks ahead and then turn 90 degrees, then move 2 blocks
+gerald please move 2 blocks ahead
+gerald turn 90 degrees then move 2 blocks
+
+

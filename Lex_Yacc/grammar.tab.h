@@ -53,7 +53,9 @@ extern int yydebug;
      DIRECTION = 262,
      NUMBER = 263,
      DEGREES = 264,
-     CONJUNCTION = 265
+     CONJUNCTION = 265,
+     ANGLE = 266,
+     EOL = 267
    };
 #endif
 
