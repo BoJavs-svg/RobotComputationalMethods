@@ -48,14 +48,16 @@ extern int yydebug;
    enum yytokentype {
      NOUN = 258,
      KIND_WORD = 259,
-     COMMAND = 260,
-     BLOCKS = 261,
-     DIRECTION = 262,
-     NUMBER = 263,
-     DEGREES = 264,
-     CONJUNCTION = 265,
-     ANGLE = 266,
-     EOL = 267
+     POSITION = 260,
+     ORIENTATION = 261,
+     ADVERB = 262,
+     BLOCKS = 263,
+     DIRECTION = 264,
+     NUMBER = 265,
+     DEGREES = 266,
+     CONJUNCTION = 267,
+     ANGLE = 268,
+     EOL = 269
    };
 #endif
 

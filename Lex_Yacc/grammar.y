@@ -8,39 +8,36 @@ extern FILE* yyin;
 char* toLowerCase(char* str);
 %}
 
-%token NOUN KIND_WORD COMMAND BLOCKS DIRECTION NUMBER DEGREES CONJUNCTION ANGLE EOL
-
+%token NOUN KIND_WORD POSITION ORIENTATION ADVERB BLOCKS DIRECTION NUMBER DEGREES CONJUNCTION ANGLE EOL 
 %%
-statement_list : statement EOL 
+statement_list : statement 
                | statement_list statement EOL
-               | statement
+               | statement EOL
                ;
                
-statement : robot_command {printf("PASS \n");}
-          | robot_command conjunction statement
+statement : noun_phrase robot_command {printf("PASS \n");}
           ;
 
-robot_command : NOUN KIND_WORD action
-              | NOUN KIND_WORD action conjunction robot_command
+robot_command : action
+              | action CONJUNCTION action
+              | action CONJUNCTION ADVERB action
               ;
+
+noun_phrase: NOUN KIND_WORD
+            ;
 
 action : movement
        | rotation
-       | rotation conjunction movement
+       | action ADVERB action
        ;
 
-movement : COMMAND quantity BLOCKS DIRECTION
+movement : POSITION NUMBER BLOCKS DIRECTION
+         | POSITION NUMBER BLOCKS 
          ;
 
-rotation : COMMAND ANGLE DEGREES
+rotation : ORIENTATION ANGLE DEGREES
+         | ORIENTATION DIRECTION
          ;
-
-quantity : NUMBER
-         ;
-
-conjunction : CONJUNCTION
-            | conjunction CONJUNCTION
-            ;
 
 %%
 int yylex(void);
@@ -65,9 +62,7 @@ int main(int argc, char** argv) {
 
     fclose(file);
 
-    if (pass) {
-        printf("The sentence passes.\n");
-    } else {
+    if (!pass) {
         printf("The sentence fails.\n");
     }
 

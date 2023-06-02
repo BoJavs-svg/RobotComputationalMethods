@@ -19,22 +19,18 @@
 ","                         { return PUNCTUATION; }
 
 "and"                       { return CONJUNCTION; }
-"then"                      { return CONJUNCTION; }
-"subsequently"              { return CONJUNCTION; }
-"after"                     { return CONJUNCTION; }
-"afterwards"                { return CONJUNCTION; }
-"next"                      { return CONJUNCTION; }
-"finally"                   { return CONJUNCTION; }
 
-"move"                      { return COMMAND; }
-"advance"                   { return COMMAND; }
+"then"                      { return ADVERB; }
+"subsequently"              { return ADVERB; }
+"after"                     { return ADVERB; }
+"afterwards"                { return ADVERB; }
+"next"                      { return ADVERB; }
 
-"turn"                      { return COMMAND; }
-"rotate"                    { return COMMAND; }
+"move"                      { return POSITION; }
+"advance"                   { return POSITION; }
 
-"a"                         { return ARTICLE; }
-"an"                        { return ARTICLE; }
-"the"                       { return ARTICLE; }
+"turn"                      { return ORIENTATION; }
+"rotate"                    { return ORIENTATION; }
 
 "90"                        { return ANGLE; }
 "180"                       { return ANGLE; }
