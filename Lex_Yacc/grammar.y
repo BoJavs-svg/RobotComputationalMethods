@@ -9,6 +9,15 @@ char* toLowerCase(char* str);
 %}
 
 %token NOUN KIND_WORD POSITION ORIENTATION ADVERB BLOCKS DIRECTION NUMBER DEGREES CONJUNCTION ANGLE EOL 
+%{
+    FILE* output_file;    
+%}
+%union {
+    char* string;
+    int number;
+}
+%type <string> action movement rotation
+
 %%
 statement_list : statement 
                | statement_list statement EOL
@@ -18,26 +27,26 @@ statement_list : statement
 statement : noun_phrase robot_command {printf("PASS \n");}
           ;
 
-robot_command : action
-              | action CONJUNCTION action
-              | action CONJUNCTION ADVERB action
+robot_command : action { fprintf(output_file, "&s,&d\n", $1, $2); }
+              | action CONJUNCTION action { fprintf(output_file, "%s,%d\n%s,%d\n", $1, $2, $3, $4); }
+              | action CONJUNCTION ADVERB action { fprintf(output_file, "%s,%d\n%s\n%s,%d\n", $1, $2, $3, $4, $6); }
               ;
 
 noun_phrase: NOUN KIND_WORD
             ;
 
-action : movement
-       | rotation
-       | action ADVERB action
+action : movement { $$ = $1; }
+       | rotation { $$ = $1; }
+       | action ADVERB action { $$ = $1; }
        ;
 
-movement : POSITION NUMBER BLOCKS DIRECTION
-         | POSITION NUMBER BLOCKS 
+movement : POSITION NUMBER BLOCKS DIRECTION { $$ = "mov"; }
+         | POSITION NUMBER BLOCKS { $$ = "mov"; }
          ;
 
-rotation : ORIENTATION ANGLE DEGREES
-         | ORIENTATION DIRECTION
-         ;
+rotation : ORIENTATION ANGLE DEGREES { $$ = "turn"; }
+         | ORIENTATION DIRECTION { $$ = "turn"; }
+         ;  
 
 %%
 int yylex(void);
@@ -47,20 +56,25 @@ void yyerror(const char *s){
 }
 
 int main(int argc, char** argv) {
-    if (argc < 2) {
-        printf("Please provide a filename as an argument.\n");
+    if (argc < 3) {
+        printf("Please provide an input filename and an output filename as arguments.\n");
         return 1;
     }
-    FILE* file = fopen(argv[1], "r");
+    FILE* input_file = fopen(argv[1], "r");
     if (file == NULL) {
-        printf("Failed to open the file.\n");
+        printf("Failed to open the input file.\n");
         return 1;
     }
-
-    yyin = file;
+    output_file = fopen(argv[2], "w");
+    if(output_file == NULL) {
+        printf("Failed to open the output file.\n");
+        return 1;
+    }
+    yyin = input_file;
     yyparse();
-
-    fclose(file);
+    
+    fclose(input_file);
+    fclose(output_file);
 
     if (!pass) {
         printf("The sentence fails.\n");
