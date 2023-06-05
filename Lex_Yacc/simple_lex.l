@@ -5,48 +5,48 @@
 %}
 
 %%
-"robot"                     { return NOUN; }
-"gerald"                    { return NOUN; } /*robots name*/
+"robot"                     { yylval.string = strdup(yytext); return NOUN; }
+"gerald"                    { yylval.string = strdup(yytext); return NOUN; } /*robots name*/
 
-"block"                    { return BLOCKS; }
-"blocks"                   { return BLOCKS; }
+"block"                     { yylval.string = strdup(yytext); return BLOCKS; }
+"blocks"                    { yylval.string = strdup(yytext); return BLOCKS; }
 
-"degrees"                  {return DEGREES; }
+"degrees"                   { yylval.string = strdup(yytext); return DEGREES; }
 
-"please"                    { return KIND_WORD; }
-"kindly"                    { return KIND_WORD; }
+"please"                    { yylval.string = strdup(yytext); return KIND_WORD; }
+"kindly"                    { yylval.string = strdup(yytext); return KIND_WORD; }
 
-","                         { return PUNCTUATION; }
+","                         { yylval.string = strdup(yytext); return PUNCTUATION; }
 
-"and"                       { return CONJUNCTION; }
+"and"                       { yylval.string = strdup(yytext); return CONJUNCTION; }
 
-"then"                      { return ADVERB; }
-"subsequently"              { return ADVERB; }
-"after"                     { return ADVERB; }
-"afterwards"                { return ADVERB; }
-"next"                      { return ADVERB; }
+"then"                      { yylval.string = strdup(yytext); return ADVERB; }
+"subsequently"              { yylval.string = strdup(yytext); return ADVERB; }
+"after"                     { yylval.string = strdup(yytext); return ADVERB; }
+"afterwards"                { yylval.string = strdup(yytext); return ADVERB; }
+"next"                      { yylval.string = strdup(yytext); return ADVERB; }
 
-"move"                      { return POSITION; }
-"advance"                   { return POSITION; }
+"move"                      { yylval.string = strdup(yytext); return POSITION; }
+"advance"                   { yylval.string = strdup(yytext); return POSITION; }
 
-"turn"                      { return ORIENTATION; }
-"rotate"                    { return ORIENTATION; }
+"turn"                      { yylval.string = strdup(yytext); return ORIENTATION; }
+"rotate"                    { yylval.string = strdup(yytext); return ORIENTATION; }
 
-"90"                        { return ANGLE; }
-"180"                       { return ANGLE; }
-"270"                       { return ANGLE; }
-"360"                       { return ANGLE; }
+"90"                        { yylval.string = strdup(yytext); return ANGLE; }
+"180"                       { yylval.string = strdup(yytext); return ANGLE; }
+"270"                       { yylval.string = strdup(yytext); return ANGLE; }
+"360"                       { yylval.string = strdup(yytext); return ANGLE; }
 
-[0-9]+                      { return NUMBER; }
+[0-9]+                      { yylval.string = strdup(yytext); return NUMBER; }
 
 
-"ahead"                     { return DIRECTION; }
-"left"                      { return DIRECTION; }
-"right"                     { return DIRECTION; }
-"up"                        { return DIRECTION; }
-"down"                      { return DIRECTION; }
+"ahead"                     { yylval.string = strdup(yytext); return DIRECTION; }
+"left"                      { yylval.string = strdup(yytext); return DIRECTION; }
+"right"                     { yylval.string = strdup(yytext); return DIRECTION; }
+"up"                        { yylval.string = strdup(yytext); return DIRECTION; }
+"down"                      { yylval.string = strdup(yytext); return DIRECTION; }
 
-\n                          { return EOL;}
+\n                          { yylval.string = strdup(yytext); return EOL;}
 [ \t]+                      { /* Skip whitespace */ }
 %%
 

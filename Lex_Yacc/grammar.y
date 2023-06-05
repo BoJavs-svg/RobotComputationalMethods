@@ -9,7 +9,11 @@ FILE* outFile; // Output file
 char* toLowerCase(char* str);
 %}
 
-%token NOUN KIND_WORD POSITION ORIENTATION ADVERB BLOCKS DIRECTION NUMBER DEGREES CONJUNCTION ANGLE EOL 
+%union{
+    char* string;
+}
+
+%token<string> NOUN KIND_WORD POSITION ORIENTATION ADVERB BLOCKS DIRECTION NUMBER DEGREES CONJUNCTION ANGLE EOL 
 %%
 statement_list : statement 
                | statement_list statement EOL
@@ -58,7 +62,7 @@ int main(int argc, char** argv) {
         printf("Failed to open the file.\n");
         return 1;
     }
-    
+
     yyin = file;
     yyparse();
     
