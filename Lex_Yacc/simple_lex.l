@@ -1,7 +1,6 @@
 %{
 #include "grammar.tab.h"
-#define PUNCTUATION 257
-#define ARTICLE 258
+#include <string.h>
 %}
 
 %%
@@ -15,8 +14,6 @@
 
 "please"                    { yylval.string = strdup(yytext); return KIND_WORD; }
 "kindly"                    { yylval.string = strdup(yytext); return KIND_WORD; }
-
-","                         { yylval.string = strdup(yytext); return PUNCTUATION; }
 
 "and"                       { yylval.string = strdup(yytext); return CONJUNCTION; }
 
@@ -43,6 +40,7 @@
 "ahead"                     { yylval.string = strdup(yytext); return DIRECTION; }
 "left"                      { yylval.string = strdup(yytext); return DIRECTION; }
 "right"                     { yylval.string = strdup(yytext); return DIRECTION; }
+"back"                      { yylval.string = strdup(yytext); return DIRECTION; }
 "up"                        { yylval.string = strdup(yytext); return DIRECTION; }
 "down"                      { yylval.string = strdup(yytext); return DIRECTION; }
 
