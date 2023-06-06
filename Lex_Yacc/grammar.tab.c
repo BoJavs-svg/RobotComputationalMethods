@@ -80,8 +80,9 @@ FILE* outFile; // Output file
 char* toLowerCase(char* str);
 
 
+
 /* Line 189 of yacc.c  */
-#line 85 "grammar.tab.c"
+#line 86 "grammar.tab.c"
 
 /* Enabling traces.  */
 #ifndef YYDEBUG
@@ -130,14 +131,14 @@ typedef union YYSTYPE
 {
 
 /* Line 214 of yacc.c  */
-#line 12 "grammar.y"
+#line 13 "grammar.y"
 
     char* string;
 
 
 
 /* Line 214 of yacc.c  */
-#line 141 "grammar.tab.c"
+#line 142 "grammar.tab.c"
 } YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */
@@ -149,7 +150,7 @@ typedef union YYSTYPE
 
 
 /* Line 264 of yacc.c  */
-#line 153 "grammar.tab.c"
+#line 154 "grammar.tab.c"
 
 #ifdef short
 # undef short
@@ -437,8 +438,8 @@ static const yytype_int8 yyrhs[] =
 /* YYRLINE[YYN] -- source line where rule number YYN was defined.  */
 static const yytype_uint8 yyrline[] =
 {
-       0,    18,    18,    19,    20,    23,    26,    27,    28,    31,
-      34,    35,    36,    39,    40,    43,    44
+       0,    19,    19,    20,    21,    24,    27,    28,    29,    32,
+      35,    36,    37,    40,    41,    44,    45
 };
 #endif
 
@@ -1349,63 +1350,68 @@ yyreduce:
         case 5:
 
 /* Line 1455 of yacc.c  */
-#line 23 "grammar.y"
+#line 24 "grammar.y"
     {printf("PASS \n");;}
     break;
 
   case 7:
 
 /* Line 1455 of yacc.c  */
-#line 27 "grammar.y"
+#line 28 "grammar.y"
     {fprintf(outFile, "\n");;}
     break;
 
   case 8:
 
 /* Line 1455 of yacc.c  */
-#line 28 "grammar.y"
+#line 29 "grammar.y"
     {fprintf(outFile, "\n");;}
     break;
 
   case 12:
 
 /* Line 1455 of yacc.c  */
-#line 36 "grammar.y"
+#line 37 "grammar.y"
     {fprintf(outFile, "\n");;}
     break;
 
   case 13:
 
 /* Line 1455 of yacc.c  */
-#line 39 "grammar.y"
+#line 40 "grammar.y"
     {fprintf(outFile, "mov,%s\n", (yyvsp[(2) - (4)].string));;}
     break;
 
   case 14:
 
 /* Line 1455 of yacc.c  */
-#line 40 "grammar.y"
+#line 41 "grammar.y"
     {fprintf(outFile, "mov,%s\n", (yyvsp[(2) - (3)].string));;}
     break;
 
   case 15:
 
 /* Line 1455 of yacc.c  */
-#line 43 "grammar.y"
+#line 44 "grammar.y"
     {fprintf(outFile, "turn,%s\n", (yyvsp[(2) - (3)].string));;}
     break;
 
   case 16:
 
 /* Line 1455 of yacc.c  */
-#line 44 "grammar.y"
-    {fprintf(outFile, "turn,%s\n", (yyvsp[(2) - (2)].string));;}
+#line 45 "grammar.y"
+    {
+            if((yyvsp[(2) - (2)].string) == "ahead"){fprintf(outFile, "turn, 360\n");}
+            if((yyvsp[(2) - (2)].string) == "left"){fprintf(outFile, "turn, 270\n");}
+            if((yyvsp[(2) - (2)].string) == "right"){fprintf(outFile, "turn, 90\n");}
+            if((yyvsp[(2) - (2)].string) == "back"){fprintf(outFile, "turn, 180\n");}
+            ;}
     break;
 
 
 
 /* Line 1455 of yacc.c  */
-#line 1409 "grammar.tab.c"
+#line 1415 "grammar.tab.c"
       default: break;
     }
   YY_SYMBOL_PRINT ("-> $$ =", yyr1[yyn], &yyval, &yyloc);
@@ -1617,7 +1623,7 @@ yyreturn:
 
 
 /* Line 1675 of yacc.c  */
-#line 47 "grammar.y"
+#line 53 "grammar.y"
 
 int yylex(void);
 void yyerror(const char *s){

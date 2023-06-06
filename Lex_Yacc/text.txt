@@ -1,11 +1,1 @@
-robot please move 3 blocks ahead then move 7 blocks and then turn 90 degrees
-robot please move 3 blocks ahead then move 7 blocks then turn 90 degrees and move 3 blocks
-robot please move 2 blocks ahead
-robot kindly move 2 blocks ahead
-robot please advance 5 blocks and turn right
-gerald kindly rotate 90 degrees and then move 2 blocks
-robot please turn 180 degrees then move 4 blocks and turn left 
-robot please move 6 blocks ahead then rotate 270 degrees
-robot please move 3 blocks ahead  then move 2 blocks next move 2 blocks and then turn 90 degrees
-gerald please move 2 blocks ahead
-gerald turn 90 degrees then move 2 blocks
+robot please move 3 blocks ahead and then turn 90 degrees then move 7 blocks

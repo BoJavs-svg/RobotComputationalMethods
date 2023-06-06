@@ -7,6 +7,7 @@ void yyerror(const char* s);
 extern FILE* yyin;
 FILE* outFile; // Output file
 char* toLowerCase(char* str);
+
 %}
 
 %union{
@@ -42,11 +43,10 @@ movement : POSITION NUMBER BLOCKS DIRECTION {fprintf(outFile, "mov,%s\n", $2);}
 
 rotation : ORIENTATION ANGLE DEGREES {fprintf(outFile, "turn,%s\n", $2);}
          | ORIENTATION DIRECTION {
-            //"ahead" = 360 ,"left"=270, "right" =90, "back" =180
-            //"up"
-            //"down"  
-            
-            fprintf(outFile, "turn,%s\n", dir);
+            if($2 == "ahead"){fprintf(outFile, "turn, 360\n");}
+            if($2 == "left"){fprintf(outFile, "turn, 270\n");}
+            if($2 == "right"){fprintf(outFile, "turn, 90\n");}
+            if($2 == "back"){fprintf(outFile, "turn, 180\n");}
             }
          ;
 
