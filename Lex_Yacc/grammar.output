@@ -1,0 +1,351 @@
+State 12 conflicts: 1 shift/reduce
+State 14 conflicts: 1 shift/reduce
+
+
+Grammar
+
+    0 $accept: statement_list $end
+
+    1 statement_list: statement '\n'
+    2               | statement_list statement '\n'
+
+    3 statement: robot_command
+    4          | robot_command conjunction statement
+
+    5 robot_command: NOUN KIND_WORD action
+    6              | NOUN KIND_WORD action conjunction robot_command
+
+    7 action: movement
+    8       | rotation
+    9       | rotation conjunction movement
+
+   10 movement: COMMAND quantity BLOCKS DIRECTION
+
+   11 rotation: COMMAND ANGLE DEGREES
+
+   12 quantity: NUMBER
+
+   13 conjunction: CONJUNCTION
+   14            | conjunction CONJUNCTION
+
+
+Terminals, with rules where they appear
+
+$end (0) 0
+'\n' (10) 1 2
+error (256)
+NOUN (258) 5 6
+KIND_WORD (259) 5 6
+COMMAND (260) 10 11
+BLOCKS (261) 10
+DIRECTION (262) 10
+NUMBER (263) 12
+DEGREES (264) 11
+CONJUNCTION (265) 13 14
+ANGLE (266) 11
+
+
+Nonterminals, with rules where they appear
+
+$accept (13)
+    on left: 0
+statement_list (14)
+    on left: 1 2, on right: 0 2
+statement (15)
+    on left: 3 4, on right: 1 2 4
+robot_command (16)
+    on left: 5 6, on right: 3 4 6
+action (17)
+    on left: 7 8 9, on right: 5 6
+movement (18)
+    on left: 10, on right: 7 9
+rotation (19)
+    on left: 11, on right: 8 9
+quantity (20)
+    on left: 12, on right: 10
+conjunction (21)
+    on left: 13 14, on right: 4 6 9 14
+
+
+State 0
+
+    0 $accept: . statement_list $end
+    1 statement_list: . statement '\n'
+    2               | . statement_list statement '\n'
+    3 statement: . robot_command
+    4          | . robot_command conjunction statement
+    5 robot_command: . NOUN KIND_WORD action
+    6              | . NOUN KIND_WORD action conjunction robot_command
+
+    NOUN  shift, and go to state 1
+
+    statement_list  go to state 2
+    statement       go to state 3
+    robot_command   go to state 4
+
+
+State 1
+
+    5 robot_command: NOUN . KIND_WORD action
+    6              | NOUN . KIND_WORD action conjunction robot_command
+
+    KIND_WORD  shift, and go to state 5
+
+
+State 2
+
+    0 $accept: statement_list . $end
+    2 statement_list: statement_list . statement '\n'
+    3 statement: . robot_command
+    4          | . robot_command conjunction statement
+    5 robot_command: . NOUN KIND_WORD action
+    6              | . NOUN KIND_WORD action conjunction robot_command
+
+    $end  shift, and go to state 6
+    NOUN  shift, and go to state 1
+
+    statement      go to state 7
+    robot_command  go to state 4
+
+
+State 3
+
+    1 statement_list: statement . '\n'
+
+    '\n'  shift, and go to state 8
+
+
+State 4
+
+    3 statement: robot_command .  ['\n']
+    4          | robot_command . conjunction statement
+   13 conjunction: . CONJUNCTION
+   14            | . conjunction CONJUNCTION
+
+    CONJUNCTION  shift, and go to state 9
+
+    $default  reduce using rule 3 (statement)
+
+    conjunction  go to state 10
+
+
+State 5
+
+    5 robot_command: NOUN KIND_WORD . action
+    6              | NOUN KIND_WORD . action conjunction robot_command
+    7 action: . movement
+    8       | . rotation
+    9       | . rotation conjunction movement
+   10 movement: . COMMAND quantity BLOCKS DIRECTION
+   11 rotation: . COMMAND ANGLE DEGREES
+
+    COMMAND  shift, and go to state 11
+
+    action    go to state 12
+    movement  go to state 13
+    rotation  go to state 14
+
+
+State 6
+
+    0 $accept: statement_list $end .
+
+    $default  accept
+
+
+State 7
+
+    2 statement_list: statement_list statement . '\n'
+
+    '\n'  shift, and go to state 15
+
+
+State 8
+
+    1 statement_list: statement '\n' .
+
+    $default  reduce using rule 1 (statement_list)
+
+
+State 9
+
+   13 conjunction: CONJUNCTION .
+
+    $default  reduce using rule 13 (conjunction)
+
+
+State 10
+
+    3 statement: . robot_command
+    4          | . robot_command conjunction statement
+    4          | robot_command conjunction . statement
+    5 robot_command: . NOUN KIND_WORD action
+    6              | . NOUN KIND_WORD action conjunction robot_command
+   14 conjunction: conjunction . CONJUNCTION
+
+    NOUN         shift, and go to state 1
+    CONJUNCTION  shift, and go to state 16
+
+    statement      go to state 17
+    robot_command  go to state 4
+
+
+State 11
+
+   10 movement: COMMAND . quantity BLOCKS DIRECTION
+   11 rotation: COMMAND . ANGLE DEGREES
+   12 quantity: . NUMBER
+
+    NUMBER  shift, and go to state 18
+    ANGLE   shift, and go to state 19
+
+    quantity  go to state 20
+
+
+State 12
+
+    5 robot_command: NOUN KIND_WORD action .  [CONJUNCTION, '\n']
+    6              | NOUN KIND_WORD action . conjunction robot_command
+   13 conjunction: . CONJUNCTION
+   14            | . conjunction CONJUNCTION
+
+    CONJUNCTION  shift, and go to state 9
+
+    CONJUNCTION  [reduce using rule 5 (robot_command)]
+    $default     reduce using rule 5 (robot_command)
+
+    conjunction  go to state 21
+
+
+State 13
+
+    7 action: movement .
+
+    $default  reduce using rule 7 (action)
+
+
+State 14
+
+    8 action: rotation .  [CONJUNCTION, '\n']
+    9       | rotation . conjunction movement
+   13 conjunction: . CONJUNCTION
+   14            | . conjunction CONJUNCTION
+
+    CONJUNCTION  shift, and go to state 9
+
+    CONJUNCTION  [reduce using rule 8 (action)]
+    $default     reduce using rule 8 (action)
+
+    conjunction  go to state 22
+
+
+State 15
+
+    2 statement_list: statement_list statement '\n' .
+
+    $default  reduce using rule 2 (statement_list)
+
+
+State 16
+
+   14 conjunction: conjunction CONJUNCTION .
+
+    $default  reduce using rule 14 (conjunction)
+
+
+State 17
+
+    4 statement: robot_command conjunction statement .
+
+    $default  reduce using rule 4 (statement)
+
+
+State 18
+
+   12 quantity: NUMBER .
+
+    $default  reduce using rule 12 (quantity)
+
+
+State 19
+
+   11 rotation: COMMAND ANGLE . DEGREES
+
+    DEGREES  shift, and go to state 23
+
+
+State 20
+
+   10 movement: COMMAND quantity . BLOCKS DIRECTION
+
+    BLOCKS  shift, and go to state 24
+
+
+State 21
+
+    5 robot_command: . NOUN KIND_WORD action
+    6              | . NOUN KIND_WORD action conjunction robot_command
+    6              | NOUN KIND_WORD action conjunction . robot_command
+   14 conjunction: conjunction . CONJUNCTION
+
+    NOUN         shift, and go to state 1
+    CONJUNCTION  shift, and go to state 16
+
+    robot_command  go to state 25
+
+
+State 22
+
+    9 action: rotation conjunction . movement
+   10 movement: . COMMAND quantity BLOCKS DIRECTION
+   14 conjunction: conjunction . CONJUNCTION
+
+    COMMAND      shift, and go to state 26
+    CONJUNCTION  shift, and go to state 16
+
+    movement  go to state 27
+
+
+State 23
+
+   11 rotation: COMMAND ANGLE DEGREES .
+
+    $default  reduce using rule 11 (rotation)
+
+
+State 24
+
+   10 movement: COMMAND quantity BLOCKS . DIRECTION
+
+    DIRECTION  shift, and go to state 28
+
+
+State 25
+
+    6 robot_command: NOUN KIND_WORD action conjunction robot_command .
+
+    $default  reduce using rule 6 (robot_command)
+
+
+State 26
+
+   10 movement: COMMAND . quantity BLOCKS DIRECTION
+   12 quantity: . NUMBER
+
+    NUMBER  shift, and go to state 18
+
+    quantity  go to state 20
+
+
+State 27
+
+    9 action: rotation conjunction movement .
+
+    $default  reduce using rule 9 (action)
+
+
+State 28
+
+   10 movement: COMMAND quantity BLOCKS DIRECTION .
+
+    $default  reduce using rule 10 (movement)
