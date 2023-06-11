@@ -1,5 +1,5 @@
 mov,3
-turn,90
-mov,7
+turn,180
+mov,2
 
 
