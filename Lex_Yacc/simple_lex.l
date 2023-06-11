@@ -38,6 +38,7 @@
 
 
 "ahead"                     { yylval.string = strdup(yytext); return DIRECTION; }
+"forward"                   { yylval.string = strdup(yytext); return DIRECTION; }
 "left"                      { yylval.string = strdup(yytext); return DIRECTION; }
 "right"                     { yylval.string = strdup(yytext); return DIRECTION; }
 "back"                      { yylval.string = strdup(yytext); return DIRECTION; }
@@ -46,6 +47,7 @@
 
 \n                          { yylval.string = strdup(yytext); return EOL;}
 [ \t]+                      { /* Skip whitespace */ }
+","                         { /* Skip whitespace */ }
 %%
 
 int yywrap(void) {
