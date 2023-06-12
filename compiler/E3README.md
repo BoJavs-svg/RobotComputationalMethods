@@ -1,7 +1,7 @@
 # Deliverable 3: YACC grammar
 ## Problem description:
 
-After translating to tokens, the now the job of the parser is to take those tokens and write into the *.asm* file the valid syntax for the CPU to use. 
+After translating to tokens, the now the job of the parser is to take those tokens and write into the *.asm* file the valid syntax for the CPU to use. The grammar provided allows the user to define instructions for the robot to follow; it allows the user to control the robot's movements, rotation and position on the grid.
 
 ## Context Free Grammar
 ```
