@@ -1,4 +1,10 @@
-banner image {}
+
+
+By:
+- Israel vidal paredes - A01750543
+- Javier Eric Hernández - A01635390
+- Mariana BusTos Hernández - a01641324 
+
 **LINK TO REPO:** https://github.com/BoJavs-svg/RobotComputationalMethods
 # Deliverable 1: machine state and CPU simulator
 
