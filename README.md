@@ -93,10 +93,21 @@ robot moves 2 blocks quickly
 # Deliverable 3: YACC grammar
 ## Problem description:
 
-After translating to tokens, the now the job of the parser is to take those tokens and write into the *.asm* file the valid syntax for the CPU to use. 
+After translating to tokens, now the job of the parser is to take those tokens and write into the *.asm* file the valid syntax for the CPU to use. 
 
+## Context Free Grammar
+```
+⟨STATEMENT_LIST⟩ → ⟨STATEMENT⟩ | ⟨STATEMENT_LIST⟩ ⟨STATEMENT⟩
+⟨STATEMENT⟩ → ⟨NOUN_PHRASE⟩  ⟨ROBOT_COMMAND⟩ 
+⟨ROBOT_COMMAND⟩ → ⟨ACTION⟩ | ⟨ACTION⟩  ⟨CONJUNCTION⟩ ⟨ACTION⟩ |⟨ACTION⟩ ⟨CONJUNCTION⟩⟨ADVERB⟩ ⟨ACTION⟩ 
+⟨NOUN_PHRASE⟩ →  ⟨NOUN⟩  ⟨KIND_WORD⟩
+⟨ACTION⟩ →  ⟨MOVEMENT⟩ | ⟨ROTATION⟩ |  ⟨ACTION⟩ ⟨ADVERB⟩ ⟨ACTION⟩ |⟨ACTION⟩ ⟨CONJUNCTION⟩ ⟨ACTION⟩
+⟨MOVEMENT⟩ → ⟨POSITION⟩ ⟨NUMBER⟩ ⟨BLOCKS⟩ ⟨DIRECTION⟩ | ⟨POSITION⟩ ⟨NUMBER⟩ ⟨BLOCKS⟩ | ⟨POSITION⟩ ⟨BLOCKS⟩ ⟨NUMBER⟩ ⟨DIRECTION⟩ 
+⟨ROTATION⟩ → ⟨ORIENTATION⟩ ⟨ANGLE⟩ ⟨DEGREES⟩ | ORIENTATION⟩ ⟨DIRECTION⟩
+```
 
 ## Valid Sentences
+
 With the tokens already defined, examples of valid sentences are as follows:
 ```
     * Robot please move 2 blocks ahead
