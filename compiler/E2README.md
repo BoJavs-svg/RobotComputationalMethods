@@ -1,5 +1,10 @@
 # Deliverable 2: Lex analyzer
 
+Contributors:
+- Israel vidal paredes - A01750543
+- Javier Eric Hernández - A01635390
+- Mariana BusTos Hernández - a01641324 
+- 
 ## Problem description:
 
 In order for a human operator to use the robot, a language that is more atuned with regular human speech is necesary. 
