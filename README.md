@@ -9,7 +9,7 @@ Contributors:
 
 ---
 
-# Deliverable 1: machine state and CPU simulator
+# Machine state and CPU simulator
 
 ## Problem description:
 
@@ -19,7 +19,6 @@ A robot language and compiler first needs a CPU that is capable of reading and e
 - [x] Understand and execute instructions
 - [x] Draw the machine's state on a matrix.
 
----
 ## Diagram
 First, the robot awaits a comand to be executed, which can be classified as either a *"mov"* comand or a *"turn"* comand:
 ![nfa1](nfa.png)
@@ -31,6 +30,7 @@ For a **mov** comand, the robot takes takes the specified amount and executes th
 For a **turn** comand, the robot keeps track of its own direction in order to turn the correct amount of degrees to end up facing a different direction, represented by the states in the diagram:
 
 ![nfa3](S5.png)
+
 ## Instruction Syntax:
 Valid syntax for the **instructions.asm** file
 
@@ -45,7 +45,6 @@ mov,2
 ```
 turn, 180
 ```
----
 
 ## Usage:
 1. Write instructions into the instructions.asm file with valid syntax
@@ -59,7 +58,8 @@ mov, 2
 ```
 ![matrix image](https://github.com/BoJavs-svg/RobotComputationalMethods/assets/73002064/768f099d-76f3-452f-b547-d7f58a123b1d)
 
-# Deliverable 2: Lex analyzer
+---
+# Lex analyzer
 
 ## Problem description:
 
@@ -90,7 +90,10 @@ robot please move 3 blocks ahead and then turn 90 degrees, then move forward 5 b
 robot moves 2 blocks quickly
 ```
 ![fail](https://github.com/BoJavs-svg/RobotComputationalMethods/assets/73002064/e9ce5809-8f1e-4607-9d8a-584acaa0101c)
-# Deliverable 3: YACC grammar
+
+--- 
+
+# YACC grammar
 ## Problem description:
 
 After translating to tokens, now the job of the parser is to take those tokens and write into the *.asm* file the valid syntax for the CPU to use. 
