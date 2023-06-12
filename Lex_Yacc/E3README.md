@@ -1,13 +1,10 @@
 # Deliverable 3: YACC grammar
-
-
-
-## 🚀 Problem description:
+## Problem description:
 
 After translating to tokens, the now the job of the parser is to take those tokens and write into the *.asm* file the valid syntax for the CPU to use. 
 
 
-## ✏️ Valid Sentences
+## Valid Sentences
 With the tokens already defined, examples of valid sentences are as follows:
 ```
     * Robot please move 2 blocks ahead
@@ -23,21 +20,12 @@ Examples of invalid sentences:
 ```
 
 
-## 👟 Run example:
-human input {}
-.asm file {}
+## Run example:
+Input:
+```
+robot please move 3 blocks ahead and then turn 90 degrees, then move 2 blocks
+```
+**OUTPUT instructions.asm:**
 
-In order to run:
-<!--
-Declare in format that compiler is ran with 
-win_flex simple_lex.l
-win_bison -d grammar.y
-gcc lex.yy.c grammar.tab.c -o program 
-./program text.txt
+![created_file](https://github.com/BoJavs-svg/RobotComputationalMethods/assets/73002064/a81a1040-095a-42c5-bd0b-066d682d6772)
 
-flex simple_lex.l
-bison -d grammar.y
-gcc lex.yy.c grammar.tab.c -o program 
-./program text.txt
-
--->
