@@ -60,5 +60,5 @@ class RobotSimulator:
 
 if __name__ == '__main__':
     robot = RobotSimulator()
-    robot.execute_instructions("Lex_Yacc\instructions.asm")
+    robot.execute_instructions("compiler\instructions.asm")
     robot.draw_field()

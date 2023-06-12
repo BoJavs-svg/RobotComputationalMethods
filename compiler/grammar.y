@@ -42,7 +42,7 @@ action : movement
 
 
 movement : POSITION NUMBER BLOCKS DIRECTION {fprintf(outFile, "mov,%s\n", $2);}
-        |POSITION DIRECTION NUMBER BLOCKS {fprintf(outFile, "mov,%s\n", $3);}
+        | POSITION DIRECTION NUMBER BLOCKS {fprintf(outFile, "mov,%s\n", $3);}
          | POSITION NUMBER BLOCKS {fprintf(outFile, "mov,%s\n", $2);}
          ;
 
