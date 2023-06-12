@@ -1,5 +1,10 @@
 # Deliverable 1: machine state and CPU simulator
 
+Contributors:
+- Israel vidal paredes - A01750543
+- Javier Eric Hernández - A01635390
+- Mariana BusTos Hernández - a01641324 
+
 #### Link to the repository:
 https://github.com/BoJavs-svg/RobotComputationalMethods
 
