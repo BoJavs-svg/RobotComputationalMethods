@@ -14,15 +14,15 @@ A robot language and compiler first needs a CPU that is capable of reading and e
 ---
 ## ⭕ Diagram
 First, the robot awaits a comand to be executed, which can be classified as either a *"mov"* comand or a *"turn"* comand:
-![nfa1](../../nfa.png)
+![nfa1](../nfa.png)
 
 For a **mov** comand, the robot takes takes the specified amount and executes the action:
 
-![nfa2](../../S2.png)
+![nfa2](../S2.png)
 
 For a **turn** comand, the robot keeps track of its own direction in order to turn the correct amount of degrees to end up facing a different direction, represented by the states in the diagram:
 
-![nfa3](../../S5.png)
+![nfa3](../S5.png)
 ## 🖋️ Instruction Syntax:
 Valid syntax for the **instructions.asm** file
 
