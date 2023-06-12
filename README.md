@@ -11,8 +11,15 @@ A robot language and compiler first needs a CPU that is capable of reading and e
 
 ---
 ## ⭕ Diagram
+First, the robot awaits a comand to be executed, which can be classified as either a *"mov"* comand or a *"turn"* comand:
 ![nfa1](nfa.png)
+
+For a **mov** comand, the robot takes takes the specified amount and executes the action:
+
 ![nfa2](S2.png)
+
+For a **turn** comand, the robot keeps track of its own direction in order to turn the correct amount of degrees to end up facing a different direction, represented by the states in the diagram:
+
 ![nfa3](S5.png)
 ## 🖋️ Instruction Syntax:
 Valid syntax for the **instructions.asm** file
@@ -53,18 +60,16 @@ In order to achieve this, a series of tokens that are used by a lexer in order t
 ## ✅ Accepted Keywords
 Keywords accepted and translated to tokens:
 
-- **NOUN**: robot, gerald
-- **BLOCKS**: block, blocks
-- **DEGREES**: degrees
-- **KIND_WORD**: please, kindly
-- **CONJUNCTION**: and
-- **ADVERB**: then, subsequently, afterwards, after, next
-- **POSITION**: move, advance
-- **ORIENTATION**: turn, rotate
-- **ANGLE**: 90, 180, 270, 360
-- **NUMBER**: [0-9]+
-- **DIRECTION**: ahead, forward, left, right, back, up, down.
-- **EOL**: \n (*used to separate sentences*)
+- **⟨NOUN⟩** → "robot" | "gerald"
+- **⟨KIND_WORD⟩** → "please" | "kindly"
+- **⟨BLOCKS⟩** → "block" | "blocks"
+- **⟨DEGREES⟩** → "degrees"
+- **⟨CONJUNCTION⟩** →  "and"
+- **⟨ADVERB⟩** → "then" | "subsequently"|"after"|"afterwards"|"next"
+- **⟨POSITION⟩** →  "move" | "advance"
+- **⟨ORIENTATION⟩** →  "turn" | "rotate"
+- **⟨ANGLE⟩** → "90" |"180"|"270" | "360"
+- **⟨DIRECTION⟩** → "ahead" | "left"|"right"| "up" |"down"
 
 ## 👟 Run example:
 ```

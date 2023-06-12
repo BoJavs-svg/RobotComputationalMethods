@@ -9,67 +9,15 @@ In order to achieve this, a series of tokens that are used by a lexer in order t
 ## ✅ Accepted Keywords
 Keywords accepted and translated to tokens:
 
-- **NOUN**: robot, gerald
-- **BLOCKS**: block, blocks
-- **DEGREES**: degrees
-- **KIND_WORD**: please, kindly
-- **CONJUNCTION**: and
-- **ADVERB**: then, subsequently, afterwards, after, next
-- **POSITION**: move, advance
-- **ORIENTATION**: turn, rotate
-- **ANGLE**: 90, 180, 270, 360
-- **NUMBER**: [0-9]+
-- **DIRECTION**: ahead, forward, left, right, back, up, down.
-- **EOL**: \n (*used to separate sentences*)
-
+- **⟨NOUN⟩** → "robot" | "gerald"
+- **⟨KIND_WORD⟩** → "please" | "kindly"
+- **⟨BLOCKS⟩** → "block" | "blocks"
+- **⟨DEGREES⟩** → "degrees"
+- **⟨CONJUNCTION⟩** →  "and"
+- **⟨ADVERB⟩** → "then" | "subsequently"|"after"|"afterwards"|"next"
+- **⟨POSITION⟩** →  "move" | "advance"
+- **⟨ORIENTATION⟩** →  "turn" | "rotate"
+- **⟨ANGLE⟩** → "90" |"180"|"270" | "360"
+- **⟨DIRECTION⟩** → "ahead" | "left"|"right"| "up" |"down"
 ## 👟 Run example:
 In order to run:
-<!--
-Declare in format that compiler is ran with 
-win_flex simple_lex.l
-win_bison -d grammar.y
-gcc lex.yy.c grammar.tab.c -o program 
-./program text.txt
-
-flex simple_lex.l
-bison -d grammar.y
-gcc lex.yy.c grammar.tab.c -o program 
-./program text.txt
-
--->
-In order to run:
-<!--
-Declare in format that compiler is ran with 
-win_flex simple_lex.l
-win_bison -d grammar.y
-gcc lex.yy.c grammar.tab.c -o program 
-./program text.txt
-
-flex simple_lex.l
-bison -d grammar.y
-gcc lex.yy.c grammar.tab.c -o program 
-./program text.txt
-
--->
-input1 {}
-accepted {}
-input2 {}
-rejected {}
-
-In order to run:
-<!--
-Declare in format that compiler is ran with 
-win_flex simple_lex.l
-win_bison -d grammar.y
-gcc lex.yy.c grammar.tab.c -o program 
-./program text.txt
-
-flex simple_lex.l
-bison -d grammar.y
-gcc lex.yy.c grammar.tab.c -o program 
-./program text.txt
-
--->
-
-
-
