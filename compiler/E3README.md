@@ -1,4 +1,10 @@
 # Deliverable 3: YACC grammar
+
+Contributors:
+- Israel vidal paredes - A01750543
+- Javier Eric Hernández - A01635390
+- Mariana BusTos Hernández - a01641324 
+- 
 ## Problem description:
 
 After translating to tokens, the now the job of the parser is to take those tokens and write into the *.asm* file the valid syntax for the CPU to use. The grammar provided allows the user to define instructions for the robot to follow; it allows the user to control the robot's movements, rotation and position on the grid.
