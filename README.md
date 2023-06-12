@@ -38,9 +38,9 @@ turn, 180
 ```
 mov, 3
 turn, 90
-mov, 7
+mov, 2
 ```
-matrix image {}
+![matrix image](https://github.com/BoJavs-svg/RobotComputationalMethods/assets/73002064/768f099d-76f3-452f-b547-d7f58a123b1d)
 
 # Deliverable 2: Lex analyzer
 
