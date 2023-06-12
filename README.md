@@ -103,5 +103,6 @@ Input:
 robot please move 3 blocks ahead and then turn 90 degrees, then move 2 blocks
 ```
 **OUTPUT instructions.asm:**
+
 ![created_file](https://github.com/BoJavs-svg/RobotComputationalMethods/assets/73002064/a81a1040-095a-42c5-bd0b-066d682d6772)
 
