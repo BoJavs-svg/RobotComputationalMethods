@@ -23,7 +23,6 @@ Valid syntax for the **instructions.asm** file
 ```
 mov,2
 ```
-
 #### **Turn instruction:**
 "turn" keyword followed comma and valid value: (90,180, 270 or 360)
 ```
@@ -64,15 +63,15 @@ Keywords accepted and translated to tokens:
 - **EOL**: \n (*used to separate sentences*)
 
 ## 👟 Run example:
-input1 {}
+```
+robot please move 3 blocks ahead and then turn 90 degrees, then move forward 5 blocks and turn 90 degrees
+```
 accepted {}
-input2 {}
+```
+robot moves 2 blocks quickly
+```
 rejected {}
-
 # Deliverable 3: YACC grammar
-
-
-
 ## 🚀 Problem description:
 
 After translating to tokens, the now the job of the parser is to take those tokens and write into the *.asm* file the valid syntax for the CPU to use. 
@@ -95,6 +94,8 @@ Examples of invalid sentences:
 
 
 ## 👟 Run example:
-human input {}
-.asm file {}
-
+Input:
+```
+robot please move 3 blocks ahead and then turn 90 degrees, then move 2 blocks
+```
+created file {}
