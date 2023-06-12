@@ -3,7 +3,7 @@
 #### Link to the repository:
 https://github.com/BoJavs-svg/RobotComputationalMethods
 
-## 🚀 Problem description:
+## Problem description:
 
 A robot language and compiler first needs a CPU that is capable of reading and executing instructions; in order to simulate the functionalities that such robot would have, a the *CPU.py* file found in the */src* folder has the capacity to:
 
@@ -12,7 +12,7 @@ A robot language and compiler first needs a CPU that is capable of reading and e
 - [x] Draw the machine's state on a matrix.
 
 ---
-## ⭕ Diagram
+## Diagram
 First, the robot awaits a comand to be executed, which can be classified as either a *"mov"* comand or a *"turn"* comand:
 ![nfa1](../nfa.png)
 
@@ -23,7 +23,7 @@ For a **mov** comand, the robot takes takes the specified amount and executes th
 For a **turn** comand, the robot keeps track of its own direction in order to turn the correct amount of degrees to end up facing a different direction, represented by the states in the diagram:
 
 ![nfa3](../S5.png)
-## 🖋️ Instruction Syntax:
+## Instruction Syntax:
 Valid syntax for the **instructions.asm** file
 
 #### **Move instruction:**
@@ -39,11 +39,11 @@ turn, 180
 ```
 ---
 
-## 📦 Usage:
+## Usage:
 1. Write instructions into the instructions.asm file with valid syntax
 2. Run CPU.py file
 
-## 👟 Run example:
+## Run example:
 ```
 mov, 3
 turn, 90
