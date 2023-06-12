@@ -1,11 +1,14 @@
 # Computational Methods Robot
 
+
 Contributors:
 - Israel vidal paredes - A01750543
 - Javier Eric Hernández - A01635390
 - Mariana BusTos Hernández - a01641324 
 
 **LINK TO REPO:** https://github.com/BoJavs-svg/RobotComputationalMethods
+
+This project simulates the CPU of a car robot, with its own programming language and compiler. The robot moves in a 2-D square matrix of 10 blocks.  The project was implemented using Lex and Yacc, and Python.
 
 ---
 
