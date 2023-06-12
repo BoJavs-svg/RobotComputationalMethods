@@ -11,9 +11,9 @@ A robot language and compiler first needs a CPU that is capable of reading and e
 
 ---
 ## ⭕ Diagram
-{}
-{}
-{}
+![nfa1](nfa.png)
+![nfa2](S2.png)
+![nfa3](S5.png)
 ## 🖋️ Instruction Syntax:
 Valid syntax for the **instructions.asm** file
 
