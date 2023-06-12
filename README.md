@@ -35,7 +35,11 @@ turn, 180
 2. Run CPU.py file
 
 ## 👟 Run example:
-instructions image {}
+```
+mov, 3
+turn, 90
+mov, 7
+```
 matrix image {}
 
 # Deliverable 2: Lex analyzer
@@ -66,11 +70,11 @@ Keywords accepted and translated to tokens:
 ```
 robot please move 3 blocks ahead and then turn 90 degrees, then move forward 5 blocks and turn 90 degrees
 ```
-accepted {}
+![pass](https://github.com/BoJavs-svg/RobotComputationalMethods/assets/73002064/b4860f1c-5925-44f6-bce7-5e95455d6904)
 ```
 robot moves 2 blocks quickly
 ```
-rejected {}
+![fail](https://github.com/BoJavs-svg/RobotComputationalMethods/assets/73002064/e9ce5809-8f1e-4607-9d8a-584acaa0101c)
 # Deliverable 3: YACC grammar
 ## 🚀 Problem description:
 
@@ -98,4 +102,6 @@ Input:
 ```
 robot please move 3 blocks ahead and then turn 90 degrees, then move 2 blocks
 ```
-created file {}
+**OUTPUT instructions.asm:**
+![created_file](https://github.com/BoJavs-svg/RobotComputationalMethods/assets/73002064/a81a1040-095a-42c5-bd0b-066d682d6772)
+
