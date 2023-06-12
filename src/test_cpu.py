@@ -21,6 +21,20 @@ class TestRobot(unittest.TestCase):
         new_position = self.robot.calculate_new_position(2)  # Calculate new position after moving 2 blocks
         self.assertEqual(new_position, [0, 2])  # Expected new position relative to initial position (0, 0)
 
+    def test_execute_instruction(self):
+        self.robot.execute_instruction("MOV, 3")
+        self.assertEqual(self.robot.position, [0, 3])  # Expected position after executing move instruction
+
+        self.robot.execute_instruction("TURN, 90")
+        self.assertEqual(self.robot.direction, 180)  # Expected direction after executing turn instruction
+
+    def test_is_position_valid(self):
+        valid_position = [5, 5]
+        self.assertTrue(self.robot.is_position_valid(valid_position))  # Valid position should return True
+
+        invalid_position = [15, 5]
+        self.assertFalse(self.robot.is_position_valid(invalid_position))  # Out-of-bounds position should return False
+
 
 if __name__ == '__main__':
     unittest.main()

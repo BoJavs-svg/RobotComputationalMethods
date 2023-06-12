@@ -1,45 +1,53 @@
 %{
-#include "y.tab.h"
+#include "grammar.tab.h"
+#include <string.h>
 %}
 
 %%
-"robot"                     { return NOUN; }
-"gerald"                    { return NOUN; } /*robots name*/
+"robot"                     { yylval.string = strdup(yytext); return NOUN; }
+"gerald"                    { yylval.string = strdup(yytext); return NOUN; } /*robots name*/
 
-"block"                    { return BLOCKS; }
-"blocks"                   { return BLOCKS; }
+"block"                     { yylval.string = strdup(yytext); return BLOCKS; }
+"blocks"                    { yylval.string = strdup(yytext); return BLOCKS; }
 
-"please"                    { return KIND_WORD; }
-"kindly"                    { return KIND_WORD; }
+"degrees"                   { yylval.string = strdup(yytext); return DEGREES; }
 
-","                         { return PUNCTUATION; }
+"please"                    { yylval.string = strdup(yytext); return KIND_WORD; }
+"kindly"                    { yylval.string = strdup(yytext); return KIND_WORD; }
 
-"and"                       { return CONJUNCTION; }
-"then"                      { return CONJUNCTION; }
-"subsequently"              { return CONJUNCTION; }
-"after"                     { return CONJUNCTION; }
-"afterwards"                { return CONJUNCTION; }
-"next"                      { return CONJUNCTION; }
-"finally"                   { return CONJUNCTION; }
+"and"                       { yylval.string = strdup(yytext); return CONJUNCTION; }
 
-"move"                      { return COMMAND; }
-"advance"                   { return COMMAND; }
+"then"                      { yylval.string = strdup(yytext); return ADVERB; }
+"subsequently"              { yylval.string = strdup(yytext); return ADVERB; }
+"after"                     { yylval.string = strdup(yytext); return ADVERB; }
+"afterwards"                { yylval.string = strdup(yytext); return ADVERB; }
+"next"                      { yylval.string = strdup(yytext); return ADVERB; }
 
-"turn"                      { return COMMAND; }
-"rotate"                    { return COMMAND; }
+"move"                      { yylval.string = strdup(yytext); return POSITION; }
+"advance"                   { yylval.string = strdup(yytext); return POSITION; }
 
-"a"                         { return ARTICLE; }
-"an"                        { return ARTICLE; }
-"the"                       { return ARTICLE; }
+"turn"                      { yylval.string = strdup(yytext); return ORIENTATION; }
+"rotate"                    { yylval.string = strdup(yytext); return ORIENTATION; }
 
-[0-9]+                      { return NUMBER; }
-"90"|"180"|"270"|"360"      { return DEGREES; }
+"90"                        { yylval.string = strdup(yytext); return ANGLE; }
+"180"                       { yylval.string = strdup(yytext); return ANGLE; }
+"270"                       { yylval.string = strdup(yytext); return ANGLE; }
+"360"                       { yylval.string = strdup(yytext); return ANGLE; }
 
-"ahead"                     { return DIRECTION; }
-"left"|"right"|"up"|"down"  { return DIRECTION; }
+[0-9]+                      { yylval.string = strdup(yytext); return NUMBER; }
 
-\n                          { /* Skip newline character */ }
+
+"ahead"                     { yylval.string = strdup(yytext); return DIRECTION; }
+"forward"                   { yylval.string = strdup(yytext); return DIRECTION; }
+"left"                      { yylval.string = strdup(yytext); return DIRECTION; }
+"right"                     { yylval.string = strdup(yytext); return DIRECTION; }
+"back"                      { yylval.string = strdup(yytext); return DIRECTION; }
+"up"                        { yylval.string = strdup(yytext); return DIRECTION; }
+"down"                      { yylval.string = strdup(yytext); return DIRECTION; }
+
+\n                          { yylval.string = strdup(yytext); return EOL;}
 [ \t]+                      { /* Skip whitespace */ }
+","                         { /* Skip whitespace */ }
 %%
 
 int yywrap(void) {

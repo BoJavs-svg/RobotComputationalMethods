@@ -1,0 +1,48 @@
+
+// dot -Tpng S5.dot -o S5.png
+digraph nfa {
+    rankdir=LR;
+    node [shape=circle];
+    edge [arrowhead=vee, arrowsize=0.6];
+    
+    start [shape=point];
+    start -> D0 [label="TURN"];
+    
+    subgraph cluster_D0_D90 {
+        D90 [shape=circle];
+        
+        D0 -> D90 [label=" 90°"];
+        D0 -> D180 [label=" 180°"];
+        D0 ->D270 [label=" 270°"];
+        
+        D90 -> D0 [label=" 270°"];
+        D90 -> D180 [label=" 90°"];
+        D90 -> D270 [label=" 180°"];
+        
+    }
+    
+    subgraph cluster_D270_D180 {
+        D270 [shape=circle];
+        D180 [shape=circle];
+
+        D270 -> D0 [label=" 90°"];
+        D270 -> D90 [label=" 180°"];
+        D270 -> D180 [label=" 270°"];
+        
+        D180 -> D90 [label=" 270°"];
+        D180 -> D0 [label=" 180°"];
+        D180 -> D270 [label=" 90°"];
+    }
+    
+    { rank=same; D0; D90; }
+    { rank=same; D270; D180; }
+    
+    { edge [minlen=5]; D0 -> D90; }
+    { edge [minlen=5]; D90 -> D0; }
+    { edge [minlen=5]; D90 -> D180; }
+    { edge [minlen=5]; D90 -> D270; }
+    { edge [minlen=5]; D270 -> D180; }
+    { edge [minlen=5]; D180 -> D90; }
+    { edge [minlen=5]; D180 -> D270; }
+    { edge [minlen=5]; D180 -> D0; }
+}

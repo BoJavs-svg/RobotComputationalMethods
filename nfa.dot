@@ -1,15 +1,33 @@
+
+// dot -Tpng nfa.dot -o nfa.png
+
 digraph nfa {
     rankdir=LR;
     node [shape=circle];
-    start [shape=doublecircle];
-
-    start -> S0;
+    S0 [shape=doublecircle];
 
     S0 -> S1 [label="MOV"];
     S1 -> S2 [label="[1,9]"];
-    S2 -> S0;
-
+   
     S0 -> S4 [label="TURN"];
     S4 -> S5 [label="[90,180,270,360]"];
-    S5 -> S0;
+    
+    
+    S5->ACTION
+    S2->ACTION
+    ACTION->S0
+
+    subgraph cluster_S2_comment {
+        style = invis;
+        S2_comment [shape=plaintext, label="The robot moves the amount of blocks in the current direction"];
+        S2->S2_comment  
+        
+    }
+
+    subgraph cluster_S5_comment {
+        style = invis;
+        S5_comment [shape=plaintext, label="The robot direction is changed by the amount counterclockwise"];
+        S5->S5_comment  
+        
+    }
 }

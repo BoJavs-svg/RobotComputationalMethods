@@ -1,0 +1,13 @@
+
+// dot -Tpng S2.dot -o S2.png
+
+digraph S2 {
+    rankdir=LR;
+    node [shape=circle];
+    S0 [shape=doublecircle];
+    S2 [shape=circle];
+
+    S0 -> S1 [label="MOV"];
+    S1 -> S2 [label="[1,9]"];
+    S2 -> S0 [label="ACTION"];
+}
