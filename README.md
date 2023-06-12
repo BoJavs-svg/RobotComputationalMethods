@@ -1,6 +1,6 @@
 
 
-By:
+Contributors:
 - Israel vidal paredes - A01750543
 - Javier Eric Hernández - A01635390
 - Mariana BusTos Hernández - a01641324 
